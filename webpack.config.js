@@ -8,7 +8,7 @@ module.exports = {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js',
         // devtoolModuleFilenameTemplate: 'file:///[resource-path]'
-        devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
+        devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
     },
     module: {
         rules: [{
