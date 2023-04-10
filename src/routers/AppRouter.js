@@ -17,22 +17,6 @@ const AppRoute = () => (
         <Route path="/" component={ExpenseDashboardPage} exact={true} />
         <Route path="/create" component={AddExpensePage} />
         <Route path="/edit/:id" component={EditExpensePage} />
-        {/* <Route path="/edit">
-          <Route index={true} component={EditExpensePage} />
-          <Route path="/abc" component={HelpPage} />
-        </Route> */}
-        {/* <Route
-          path="/edit"
-          render={({ match: { url } }) => {
-            console.log('Route nested url: ', url);
-            return (
-              <div>
-                <Route path={`${url}/`} component={EditExpensePage} exact />
-                <Route path={`${url}/abc`} component={HelpPage} />
-              </div>
-            )
-          }}
-        /> */}
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
