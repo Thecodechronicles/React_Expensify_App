@@ -6,6 +6,7 @@ import EditExpensePage from "../components/EditExpensePage";
 import HelpPage from "../components/HelpPage";
 import NotFoundPage from "../components/NotFoundPage";
 import UpperComponent from "../components/UpperComponent";
+import RandomComp from "../components/RandomComp";
 
 console.log("app is running good !");
 
@@ -16,7 +17,8 @@ const AppRoute = () => (
       <Switch>
         <Route path="/" component={ExpenseDashboardPage} exact={true} />
         <Route path="/create" component={AddExpensePage} />
-        <Route path="/edit/:id" component={EditExpensePage} />
+        {/* <Route path="/edit" component={HelpPage} /> */}
+        <Route path="/edit:id" component={EditExpensePage} />
         {/* <Route path="/edit">
           <Route index={true} component={EditExpensePage} />
           <Route path="/abc" component={HelpPage} />
@@ -33,6 +35,7 @@ const AppRoute = () => (
             )
           }}
         /> */}
+        {/* <Route path="/edit" component={EditExpensePage} /> */}
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
