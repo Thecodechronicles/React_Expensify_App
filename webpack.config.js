@@ -1,4 +1,12 @@
 const path = require('path');
+// const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+// const pluginObject = new ExtractTextWebpackPlugin('style.css');
+
+// // console.log('ExtractTextWebpackPlugin_extract() : ', ExtractTextWebpackPlugin.extract({ use: ['css-loader', 'sass-loader'] }));
+// // console.log('ExtractTextWebpackPlugin_new ExtractTextWebpackPlugin() : ', new ExtractTextWebpackPlugin('style.css'));
+
+// console.log('ExtractTextWebpackPlugin_extract() : ', pluginObject.extract({ use: ['css-loader', 'sass-loader'] }));
+// console.log('ExtractTextWebpackPlugin_new ExtractTextWebpackPlugin() : ', pluginObject);
 
 module.exports = {
     entry: './src/app.js',
@@ -7,7 +15,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js',
-        // devtoolModuleFilenameTemplate: 'file:///[resource-path]'
+        // devtoolModuleFilenameTemplate: 'webpack:///[resource-path]'
         devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
     },
     module: {
