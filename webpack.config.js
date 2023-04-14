@@ -1,43 +1,52 @@
 const path = require('path');
-// const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
-// const pluginObject = new ExtractTextWebpackPlugin('style.css');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-// // console.log('ExtractTextWebpackPlugin_extract() : ', ExtractTextWebpackPlugin.extract({ use: ['css-loader', 'sass-loader'] }));
-// // console.log('ExtractTextWebpackPlugin_new ExtractTextWebpackPlugin() : ', new ExtractTextWebpackPlugin('style.css'));
-
-// console.log('ExtractTextWebpackPlugin_extract() : ', pluginObject.extract({ use: ['css-loader', 'sass-loader'] }));
-// console.log('ExtractTextWebpackPlugin_new ExtractTextWebpackPlugin() : ', pluginObject);
-
-module.exports = {
-    entry: './src/app.js',
-    // entry: './src/playground-files/appTwo.js',
-    // entry: './src/playground-files/appEleven.js',
-    output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js',
-        // devtoolModuleFilenameTemplate: 'webpack:///[resource-path]'
-        devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
-    },
-    module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
+module.exports = (env) => {
+    const isProduction = env === 'production';
+    const ETW_Instance = new ExtractTextWebpackPlugin('style.css');
+    return {
+        entry: './src/app.js',
+        // entry: './src/playground-files/appTwo.js',
+        // entry: './src/playground-files/appEleven.js',
+        output: {
+            path: path.join(__dirname, 'public'),
+            filename: 'bundle.js',
+            devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
         },
-        {
-            test: /\.s?css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
-        }]
-    },
-    devtool: 'source-map',
-    // devtool: 'cheap-module-eval-source-map',
-    // devtool: 'cheap-module-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        historyApiFallback: true
+        module: {
+            rules: [{
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },
+            {
+                test: /\.s?css$/,
+                use: ETW_Instance.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+            }]
+        },
+        plugins: [
+            ETW_Instance
+        ],
+        devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
+        // devtool: 'cheap-module-source-map',
+        devServer: {
+            contentBase: path.join(__dirname, 'public'),
+            historyApiFallback: true
+        }
     }
 }
