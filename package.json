@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
+    "buildV2": "webpack",
     "build-babel": "babel ./src/playground-files/appOne.js --out-file=./public/scripts/playground/appOne.js --presets=env,react --watch",
     "build-babelV2": "babel ./src/playground-files/appTwo.js --out-file=./public/scripts/playground/appTwo.js --presets=env,react --watch",
     "build-babel-cp": "babel --plugins transform-class-properties ./src/playground-files/appOne.js --out-file=./public/scripts/playground/appOne.js --presets=env,react --watch",
