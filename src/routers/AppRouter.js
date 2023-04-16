@@ -18,7 +18,6 @@ const AppRoute = () => (
         <Route path="/" component={ExpenseDashboardPage} exact={true} />
         <Route path="/create" component={AddExpensePage} />
         {/* <Route path="/edit" component={HelpPage} /> */}
-        <Route path="/edit:id" component={EditExpensePage} />
         {/* <Route path="/edit">
           <Route index={true} component={EditExpensePage} />
           <Route path="/abc" component={HelpPage} />
@@ -36,11 +35,12 @@ const AppRoute = () => (
           }}
         /> */}
         {/* <Route path="/edit" component={EditExpensePage} /> */}
+        <Route path="/edit/:id" component={EditExpensePage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  </BrowserRouter>
+      </Switch >
+    </div >
+  </BrowserRouter >
 );
 
 export default AppRoute;
