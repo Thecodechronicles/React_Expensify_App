@@ -46,7 +46,8 @@ module.exports = (env) => {
         // devtool: 'cheap-module-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
-            historyApiFallback: true
+            historyApiFallback: true,
+            disableHostCheck: true
         }
     }
 }

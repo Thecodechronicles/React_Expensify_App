@@ -1,0 +1,17 @@
+.header {
+    background: $dark-blue;
+}
+
+.header-content {
+    padding: $m-size 0;
+}
+
+.header__title {
+    color: white;
+    text-decoration: none;
+    // padding: $s-size 0;
+
+    h1 {
+        margin: 0;
+    }
+}
