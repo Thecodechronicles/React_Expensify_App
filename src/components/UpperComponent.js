@@ -10,12 +10,6 @@ const UpperComponent = () => {
           <Link to="/" className="header__title">
             <h1>Expensify</h1>
           </Link>
-          {/* <NavLink to="/create" activeClassName="is-active">
-        CreateExpense
-      </NavLink> */}
-          {/* <NavLink to="/help" activeClassName="is-active">
-        Help
-      </NavLink> */}
         </div>
       </div>
     </div>

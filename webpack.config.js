@@ -6,8 +6,6 @@ module.exports = (env) => {
     const ETW_Instance = new ExtractTextWebpackPlugin('style.css');
     return {
         entry: './src/app.js',
-        // entry: './src/playground-files/appTwo.js',
-        // entry: './src/playground-files/appEleven.js',
         output: {
             path: path.join(__dirname, 'public'),
             filename: 'bundle.js',
@@ -43,11 +41,9 @@ module.exports = (env) => {
             ETW_Instance
         ],
         devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
-        // devtool: 'cheap-module-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             historyApiFallback: true,
-            disableHostCheck: true
         }
     }
 }
