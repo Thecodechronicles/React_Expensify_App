@@ -72,39 +72,42 @@ class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Descrition"
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-            autoFocus
-          />
-          <input
-            type="number"
-            placeholder="Amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.onDateChanged}
-            focused={this.state.focus}
-            onFocusChange={this.onFocusChanged}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            placeholder="Add your text here....."
-            value={this.state.text}
-            onChange={this.onTextChange}
-            style={{ color: "yellow" }}
-          ></textarea>
-          <button>Add Button</button>
-        </form>
-      </div>
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form-error">{this.state.error}</p>}
+        <input
+          type="text"
+          placeholder="Descrition"
+          className="text-input"
+          value={this.state.description}
+          onChange={this.onDescriptionChange}
+          autoFocus
+        />
+        <input
+          type="number"
+          placeholder="Amount"
+          className="text-input"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.onDateChanged}
+          focused={this.state.focus}
+          onFocusChange={this.onFocusChanged}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+        />
+        <textarea
+          placeholder="Add your text here....."
+          className="textarea"
+          value={this.state.text}
+          onChange={this.onTextChange}
+          style={{ color: "yellow" }}
+        ></textarea>
+        <div>
+          <button className="button">Save Expense</button>
+        </div>
+      </form>
     );
   }
 }
