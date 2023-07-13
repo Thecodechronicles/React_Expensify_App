@@ -40,7 +40,7 @@ class ExpenseForm extends React.Component {
   };
 
   onFocusChanged = ({ focused }) => {
-    console.log("focus: ", focus);
+    console.log("focus: ", focused);
     this.setState(() => ({ focus: focused }));
   };
 
