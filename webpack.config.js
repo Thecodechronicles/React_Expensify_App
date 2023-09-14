@@ -41,6 +41,7 @@ module.exports = (env) => {
             ETW_Instance
         ],
         devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
+        // devtool: 'source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             historyApiFallback: true,
