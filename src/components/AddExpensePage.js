@@ -21,4 +21,12 @@ const AddExpensePage = (props) => (
   </div>
 );
 
-export default connect()(AddExpensePage);
+const matchDispatchToProps = (dispatch) => {
+  console.log('dispatch_AddExpenses: ', dispatch);
+  dispatch((thisDispatch) => {
+    console.log('inside_callbackOf_thunk_dispatch: ', thisDispatch);
+    thisDispatch({ type: 'ABC', prop: 'abc' });
+  });
+}
+
+export default connect(undefined, matchDispatchToProps)(AddExpensePage);

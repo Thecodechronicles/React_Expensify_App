@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import expenseReducer from "../reducers/expenses";
 import filterReducer from "../reducers/filters";
+import thunk from 'redux-thunk';
 import * as actionExpenses from "../actions/expenses"; // Redux Dev Tools configurations
 import * as actionFilters from "../actions/filters"; // Redux Dev Tools configurations
 
@@ -12,7 +13,8 @@ export default () => {
       expenses: expenseReducer,
       filters: filterReducer,
     }),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true, actionCreators }) // Redux Dev Tools configurations
+    applyMiddleware(thunk)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true, actionCreators }) // Redux Dev Tools configurations
   );
 
   return store;
